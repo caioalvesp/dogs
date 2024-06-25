@@ -9,7 +9,8 @@ body {
   padding-top: 4rem;
   color: #333;
   --type-first: Helvetica, Arial, sans-serif;
-  --type-second: 'Spectral', georgia;
+  --type-second: 'Spectral', Georgia;
+  font-family: var(--type-first);
 }
 
 h1,
