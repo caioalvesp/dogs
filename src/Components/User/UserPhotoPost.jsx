@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "./UserPhotoPost.module.css";
+import useForm from "../../Hooks/useForm";
+import useFetch from "../../Hooks/useFetch";
 import Input from "../Forms/Input";
 import Button from "../Forms/Button";
-import useForm from "../../Hooks/useForm";
-import useFetch from "../../Hooks/UseFetch";
-import { PHOTO_POST } from "../../Api";
 import Error from "../Helpers/Error";
+import { PHOTO_POST } from "../../Api";
 import { useNavigate } from "react-router-dom";
 
 const UserPhotoPost = () => {
@@ -17,8 +17,8 @@ const UserPhotoPost = () => {
   const navigate = useNavigate();
 
   React.useEffect(() => {
-    if (data) navigate('/conta');
-  }, [data, navigate])
+    if (data) navigate("/conta");
+  }, [data, navigate]);
 
   function handleSubmit(event) {
     event.preventDefault();
