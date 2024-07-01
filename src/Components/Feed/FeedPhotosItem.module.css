@@ -17,7 +17,7 @@
   cursor: pointer;
 }
 
-.photo img {
+.photo > div {
   grid-area: 1/1;
 }
 
@@ -43,4 +43,5 @@
 
 .photo:hover .visualizacao {
   display: flex;
+  z-index: 100;
 }
