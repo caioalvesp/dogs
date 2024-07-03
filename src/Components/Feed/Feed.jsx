@@ -1,6 +1,7 @@
 import React from 'react';
 import FeedModal from './FeedModal';
 import FeedPhotos from './FeedPhotos';
+import PropTypes from 'prop-types';
 
 const Feed = ({ user }) => {
   const [modalPhoto, setModalPhoto] = React.useState(null);
@@ -14,7 +15,7 @@ const Feed = ({ user }) => {
         const scroll = window.scrollY;
         const height = document.body.offsetHeight - window.innerHeight;
         if (scroll > height * 0.75 && !wait) {
-          setPages((pages) => [...pages, pages.length + 1]);
+          setPages(pages => [...pages, pages.length + 1]);
           wait = true;
           setTimeout(() => {
             wait = false;
@@ -36,7 +37,7 @@ const Feed = ({ user }) => {
       {modalPhoto && (
         <FeedModal photo={modalPhoto} setModalPhoto={setModalPhoto} />
       )}
-      {pages.map((page) => (
+      {pages.map(page => (
         <FeedPhotos
           key={page}
           user={user}
@@ -50,7 +51,7 @@ const Feed = ({ user }) => {
           style={{
             textAlign: 'center',
             padding: '2rem 0 4rem 0',
-            color: '#888',
+            color: '#888'
           }}
         >
           Não existem mais postagens.
@@ -58,6 +59,17 @@ const Feed = ({ user }) => {
       )}
     </div>
   );
+};
+
+Feed.defaultProps = {
+  user: 0
+};
+
+Feed.propTypes = {
+  user: PropTypes.oneOfType([
+    PropTypes.string.isRequired,
+    PropTypes.number.isRequired
+  ])
 };
 
 export default Feed;
