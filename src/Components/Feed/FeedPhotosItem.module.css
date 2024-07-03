@@ -43,5 +43,4 @@
 
 .photo:hover .visualizacao {
   display: flex;
-  z-index: 100;
 }
